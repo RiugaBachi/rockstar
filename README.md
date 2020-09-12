@@ -1,68 +1,29 @@
-# rib-sample
+# festive
 
-Sample site for the [Rib](https://github.com/srid/rib) static site generator
+A modern blog theme written in pure Haskell using the [Rib](https://github.com/srid/rib) static site generator. Loosely based off of the Taylantatli/Moon Jekyll theme.
+
+For a live sample, this theme powers my blog at https://riugabachi.github.io
 
 ## Prerequisites
 
-First, install the [Nix package manager](https://nixos.org/nix/):
+Clone this repository and edit the global site configuration at the top of `./app/Main.hs` as appropriate. They are, by default, configured for my blog.
 
-``` bash
-bash <(curl https://nixos.org/nix/install)
-```
+Note that `rib` currently does not build on GHC 8.10.x; 8.8.x works, however. Until it builds on 8.10.x, the constraint on `base` shall be kept at `< 4.14` to mark this lack of support.
 
-Optionally, enable the [Nix cache](https://srid.cachix.org/) if you would like to speed up local builds:
-
-``` bash
-# If you do not already have cachix, install it:
-nix-env -iA cachix -f https://cachix.org/api/v1/install
-# Enable nix cache for rib
-cachix use srid
-```
-
-## Running
+## Workflow
 
 To build and run the site:
 
 ```bash
-nix-shell --run 'ghcid -T ":main -wS"'
+ghcid -T ":main -wS"
 ```
+
+This requires the [ghcid](https://github.com/ndmitchell/ghcid) wrapper tool. Alternatively, you can `cabal build && cabal run site -- -wS` or `nix-build` manully.
 
 This launches a web server at http://localhost:8080 serving the statically
-generated content. Changing either `./src/Main.hs` or the content in `./content` 
+generated content. Changing either `./Main.hs`, `./Style.hs`, or the content in `./content` 
 reloads everything.
 
-### Use a custom rib and port
+A `default.nix` file is included for your covenience should you prefer using nix to install and run ghcid. For more information, please consult the `rib` repository.
 
-You might have a local checkout of rib with certain modifications. And you might
-want to run ghcid with the server running at a different port. Both of this can
-achieved using the following command:
-
-```bash
-# Assuming rib is cloned at ../rib
-nix-shell --arg rib ../rib --run 'ghcid -T ":main -ws :8081"'
-```
-
-## Building the executable
-
-A fully built executable can be produced using `nix-build`:
-
-```
-$ nix-build 
-...
-$ ./result/bin/rib-sample --help
-Usage: rib-sample [--rebuild-all] [-w|--watch] [(-s|--serve [HOST]:PORT) | -S] 
-                  [--quiet] [--input-dir INPUTDIR] [--output-dir OUTPUTDIR]
-  Generate a static site at OUTPUTDIR using input from INPUTDIR
-
-Available options:
-  --rebuild-all            Rebuild all sources
-  -w,--watch               Watch for changes and regenerate
-  -s,--serve [HOST]:PORT   Run a HTTP server on the generated directory
-  -S                       Like `-s 127.0.0.1:8080`
-  --quiet                  Log nothing
-  --input-dir INPUTDIR     Directory containing the source files (default:
-                           content)
-  --output-dir OUTPUTDIR   Directory where files will be generated (default:
-                           dest)
-  -h,--help                Show this help text
-```
+For Github / Gitlab pages, you can init a git repository inside the `site` output folder and push to your page repo manually.
