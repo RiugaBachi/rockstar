@@ -3,5 +3,5 @@ dist-*
 .ghc.environment.*
 result
 .shake
-site/*
+site
 !b/.gitkeep

@@ -29,7 +29,7 @@ import Style (pageStyle)
 -- * Site Config
 
 avatar :: IsString a => a
-avatar = "img/avatar-xmas-r.png"
+avatar = "img/avatar-xmas-w.png"
 
 author :: IsString a => a
 author = "Riuga"
@@ -179,7 +179,7 @@ renderPage route val = html_ [lang_ "en"] $ do
       , href_ "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
       ]
     style_ [type_ "text/css"] $ C.render pageStyle
-  body_ $ renderRoute route
+  body_ [class_ "hidden"] $ renderRoute route
   scripts
   where
     routeTitle :: Text
@@ -320,7 +320,7 @@ renderPage route val = html_ [lang_ "en"] $ do
       script_ [src_ src] (mempty :: Html ())
       where
         scriptSources =
-          [ "js/jquery-1.12.0.min.js"
-          , "js/scripts.js"
+          [ "//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+          , "/js/scripts.js"
           , "//" <> disqusShortname <> ".disqus.com/embed.js"
           ]

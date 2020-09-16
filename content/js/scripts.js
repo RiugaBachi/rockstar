@@ -1,9 +1,3 @@
-// dl-menu options
-//$(function() {
-//  $( '#dl-menu' ).dlmenu({
-//    animationClasses : { classin : 'dl-animate-in', classout : 'dl-animate-out' }
-//  });
-//});
 // Need this to show animation when go back in browser
 window.onunload = function() {};
 
@@ -15,25 +9,23 @@ $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gi
 //  $(".content").fitVids();
 //});
 
-// All others
 $(document).ready(function() {
-    // zoom in/zoom out animations
-    $(".container").addClass("fadedIn");
-    $(".wrapper").addClass("fadedIn");
-    $(".btn").click(function() {
-        $(".container").removeClass("fadedIn").addClass("fadedOut");
-        $(".wrapper").removeClass("fadedOut").addClass("fadedOut");
-    });
-    // go up button
-  //  $.goup({
-  //      trigger: 500,
-  //      bottomOffset: 10,
-  //      locationOffset: 20,
-  //      containerRadius: 0,
-  //      containerColor: '#fff',
-  //      arrowColor: '#000',
-  //      goupSpeed: 'normal'
-  //  });
+    $("body").addClass("fadedIn").removeClass("hidden");
+    $(document).on("click", "a", function () {
+      var newUrl = $(this).attr("href");
+      if (!newUrl || newUrl[0] === "#") {
+          location.hash = newUrl;
+          return;
+      }
+      if ($('<a>').prop('href', newUrl).prop('hostname') !== window.location.hostname) {
+        return;
+      }
+      $("body").removeClass("fadedIn").addClass("fadedOut");
+      setTimeout(function () {
+          location = newUrl;
+      }, 750);
+      return false;
+  });
 	//$('.image-popup').magnificPopup({
   //  type: 'image',
   //  tLoading: 'Loading image #%curr%...',

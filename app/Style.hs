@@ -78,13 +78,14 @@ containerStyle = do
     backgroundImage $ url "/img/wallpaper.png"
     backgroundPosition $ positioned (pct 79.5) (pct 0)
     backgroundSize cover
-    backgroundColor biege
+    backgroundColor crimson
     backgroundAttachment attachFixed
   mapM_ (? display block)
     [ article, aside, details
     , figcaption, figure, footer
     , header, menu, nav, section, summary
     ]
+  ".hidden" ? display none
   ".header" ? do
     height (pct 100)
     position relative
@@ -298,7 +299,7 @@ elementStyle = do
     boxShadow . pure . bsColor (setA 0.8 grey) $
       shadowWithSpread 0 0 (px 12) 0
     marginTop (px 20)
-    border solid (px 3) $ setA 0.78 gold
+    border solid (px 3) $ setA 0.85 gold
     height (px 200)
     width (px 200)
   ".author-photo" ? do

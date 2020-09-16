@@ -87,7 +87,7 @@ This is why the analogy of a boxed or wrapped value fails miserably. Forgot abou
 
 In the signature for `contramap`, the functor `f a` represents our _original contravariant functor_, constructed via some means (that may not necessarily be via contramapping other `Contravariants`). `(b -> a)` is a function that _transforms b into the input of our original contravariant functor_. Given these, `contramap` ***produces a new contravariant functor that accepts an input `b` and internally transforms that `b` into an `a` and calls the original functor `f a` using that `a`***. Make sense now? If not, here's an illustration that may help.
 
-![Contravariant Contramapping Illustration](https://i.imgur.com/uk5wOWU.png)
+![Fig 1.1, Contravariant contramapping illustration](https://i.imgur.com/uk5wOWU.png)
 
 # Profunctors
 
