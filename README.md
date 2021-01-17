@@ -1,6 +1,6 @@
 # festive
 
-A modern blog theme written in pure Haskell using the [Rib](https://github.com/srid/rib) static site generator. Loosely based off of the Taylantatli/Moon Jekyll theme.
+A modern blog theme written in pure Haskell using the [rib](https://github.com/srid/rib) static site generator. Loosely based off of the Taylantatli/Moon Jekyll theme.
 
 For a live sample, this theme powers my blog at https://riugabachi.github.io
 
@@ -18,10 +18,10 @@ To build and run the site:
 ghcid -T ":main -wS"
 ```
 
-This requires the [ghcid](https://github.com/ndmitchell/ghcid) wrapper tool. Alternatively, you can `cabal build && cabal run site -- -wS` or `nix-build` manully.
+This requires the [ghcid](https://github.com/ndmitchell/ghcid) wrapper tool. Alternatively, you can `cabal build && cabal run site -- -wS` or `nix-build` manually.
 
 This launches a web server at http://localhost:8080 serving the statically
-generated content. Changing either `./Main.hs`, `./Style.hs`, or the content in `./content` 
+generated content. Changing either `./app/Main.hs`, `./app/Style.hs`, or the content in `./content` 
 reloads everything.
 
 A `default.nix` file is included for your covenience should you prefer using nix to install and run ghcid. For more information, please consult the `rib` repository.
