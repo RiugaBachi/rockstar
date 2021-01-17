@@ -4,7 +4,7 @@ module Style (
   pageStyle
 ) where
 
-import Prelude hiding (rem, span, all, (**))
+import Prelude hiding (rem, span, all, div, (**))
 import Data.Bifunctor
 import Data.Text (Text)
 import Control.Monad
@@ -32,10 +32,11 @@ orange = "#dd8338"
 
 -- * Fonts
 
-primFont, altFont, codeFont :: Text
+primFont, altFont, latexFont, codeFont :: Text
 primFont = "Fira Sans"
 altFont = "serif"
-codeFont = "Inconsolata"
+latexFont = "serif"
+codeFont = "JetBrainsMonoMedium Nerd Font Mono"
 
 -- * Utilities
 
@@ -344,24 +345,26 @@ syntaxHighlightStyle :: Css
 syntaxHighlightStyle = do
   pre ? ".highlight" ?
     padding (em 1) (em 1) (em 1) (em 1)
-  ".highlight" ? do
-    backgroundColor "#49483e"
-    color "#f8f8f2"
+  div |> ".sourceCode" ? do
+    boxShadow . pure . bsColor (setA' 0xAA black) $
+      shadowWithSpread 0 0 (px 5) 0
+  ".sourceCode" ? do
+    backgroundColor "#121212"
+    color offwhite
     fontFamily [codeFont] []
+    fontSize (px 12)
     borderRadius (px 4) (px 4) (px 4) (px 4)
     pre ? do
+      overflowX hidden
       position relative
       margin none none none none
       padding (em 1) (em 1) (em 1) (em 1)
-    ".lineno" ? do
-      paddingRight (px 24)
-      color $ lighten 50 monokaiDarkGrey
     ".hll" ? backgroundColor monokaiDarkGrey
-    ".c" ? color monokaiGrey
+    ".co" ? color monokaiGrey
     ".err" ? color monokaiDarkRed
     ".ge" ? fontStyle italic
     ".gs" ? fontWeight bold
-    forM_ redSels (? color monokaiRed)
+    forM_ redSels (? (color monokaiRed <> fontWeight bold))
     forM_ blueSels (? color monokaiBlue)
     forM_ whiteSels (? color monokaiWhite)
     forM_ goldSels (? color monokaiGold)
@@ -379,21 +382,17 @@ syntaxHighlightStyle = do
     monokaiGreen = "#a6e22e"
 
     redSels =
-      [ ".o", ".kn", ".nt", ".ow" ]
+      [ ".ot", ".kw", ".op" ]
     blueSels =
-      [ ".k", ".kc", ".kd", ".kp", ".kr", ".kt", ".no" ]
+      []
     whiteSels =
-      [ ".n", ".p", ".nb", ".ni", ".nl", ".nn", ".py"
-      , ".nv", ".w", ".bp", ".vc", ".vg", ".vi" 
-      ]
+      []
     goldSels =
-      [ ".ld", ".s", ".sb", ".sc", ".sd", ".s2", ".sh"
-      , ".si", ".sx", ".sr", ".s1", ".ss"
-      ]
+      [ ".dt" ]
     purpleSels =
-      [ ".l", ".m", ".mf", ".mh", ".mi", ".mo", ".se", ".il" ]
+      []
     greenSels =
-      [ ".na", ".nc", ".nd", ".ne", ".nf", ".nx" ]
+      [ ".st" ]
 
 typographyStyle :: Css
 typographyStyle = do
@@ -431,6 +430,9 @@ typographyStyle = do
   li ** ".highlight" ** (pre <> code) ? do
     backgroundColor transparent
     border solid (px 0) transparent
+  ".math" ?  do
+    fontSize (px 18)
+    fontFamily [latexFont] []
   ".notice" ? do
     marginTop (em 1.5)
     sym2 padding (em 0.5) (em 1)

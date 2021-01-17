@@ -23,6 +23,8 @@ executable site
     RecordWildCards
     TemplateHaskell
     TypeApplications
+    MultiWayIf
+    BlockArguments
   ghc-options:
     -Wall
     -Wincomplete-record-updates

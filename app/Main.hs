@@ -2,7 +2,9 @@ module Main where
 
 import Prelude hiding ((.), id)
 import Data.List (intersperse, sort, sortOn, group)
+import qualified Data.List as L
 import Data.String (IsString)
+import Data.Maybe
 import Data.Bool
 import Data.Char
 import qualified Clay as C
@@ -10,8 +12,8 @@ import Control.Monad
 import Control.Category
 import Control.Arrow
 import Data.Aeson
-import Data.Default (def)
-import Text.Pandoc (readerExtensions, pandocExtensions)
+import Text.Pandoc
+import Text.Pandoc.Highlighting
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.TH as Aeson
 import qualified Data.Text as T
@@ -20,7 +22,7 @@ import Data.Text (Text)
 import Development.Shake
 import Lucid
 import Main.Utf8
-import Rib (IsRoute, Pandoc)
+import Rib (IsRoute)
 import qualified Rib
 import qualified Rib.Parser.Pandoc as Pandoc
 import System.FilePath
@@ -135,7 +137,9 @@ generateSite = do
   writeHtmlRoute HomeR ()
   writeHtmlRoute AboutR . head =<<
     Rib.forEvery ["about.md"] parseMarkdown
-  posts <- reverse <$> Rib.forEvery ["posts/*.md"] parsePostMarkdown
+  posts <- reverse . catMaybes <$> Rib.forEvery ["posts/*.md"] \md ->
+    if | "/_" `L.isInfixOf` md -> pure Nothing
+       | otherwise      -> Just <$> parsePostMarkdown md
   let tags = fst <$> allTags (snd <$> posts)
   forM_ tags $ \t -> 
     writeHtmlRoute (TaggedPostListR t) $ 
@@ -164,6 +168,19 @@ generateSite = do
     mdOpts = def { readerExtensions = pandocExtensions }
 
     (^&&) = (&&&) . arr
+
+renderPandoc :: Pandoc -> Html ()
+renderPandoc = 
+  toHtmlRaw
+    . either (error "Failed to convert Pandoc to HTML5") id
+    . runPure 
+    . writeHtml5String opts 
+  where
+    opts = 
+      def { writerExtensions = pandocExtensions
+          , writerHTMLMathMethod = MathJax mempty
+          , writerHighlightStyle = Just pygments
+          }
 
 renderPage :: forall a. Route a -> a -> Html ()
 renderPage route val = html_ [lang_ "en"] $ do
@@ -224,8 +241,8 @@ renderPage route val = html_ [lang_ "en"] $ do
       where
         subroutes = ["About", "Posts", "Projects"]
     renderRoute AboutR =
-      subpageLayout ("About " <> author) "fas fa-fw fa-home" HomeR mempty mempty $
-        Pandoc.render val
+      subpageLayout ("About " <> author) "fas fa-fw fa-home" HomeR mempty mempty $ do
+        renderPandoc val
     renderRoute PostListR =
       subpageLayout "Posts" "fas fa-fw fa-home" HomeR tagsList mempty postList
       where
@@ -239,7 +256,7 @@ renderPage route val = html_ [lang_ "en"] $ do
       subpageLayout routeTitle "fas fa-fw fa-chevron-left" PostListR mempty mempty postList
     renderRoute (PostR _) = do
       let PostMeta{..} = getPostMeta val
-      let content = Pandoc.render val
+      let content = renderPandoc val
       let icon = "fas fa-fw fa-chevron-left"
       flip (flip (subpageLayout postTitle icon PostListR) (tagSection postTags)) content $ do
         h4_ [] . toHtml $ maybe "Undated" id postDate
@@ -265,7 +282,7 @@ renderPage route val = html_ [lang_ "en"] $ do
           max 1 . (`div` wpm) . length . LT.words . Lucid.renderText
     renderRoute NotFoundR =
       subpageLayout routeTitle "fas fa-fw fa-home" HomeR mempty mempty $
-        Pandoc.render val
+        renderPandoc val
 
     subpageLayout 
       :: Text -> Text -> Route x 
@@ -316,11 +333,13 @@ renderPage route val = html_ [lang_ "en"] $ do
              ] $ i_ [class_ icon] mempty
 
     scripts :: Html ()
-    scripts = forM_ scriptSources $ \src -> 
-      script_ [src_ src] (mempty :: Html ())
+    scripts = do
+      script_ [id_ "MathJax-script", async_ mempty, src_ "//cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"] (mempty :: Html ())
+      forM_ scriptSources $ \src -> script_ [src_ src] (mempty :: Html ())
       where
         scriptSources =
           [ "//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
           , "/js/scripts.js"
+          , "//polyfill.io/v3/polyfill.min.js?features=es6"
           , "//" <> disqusShortname <> ".disqus.com/embed.js"
           ]
