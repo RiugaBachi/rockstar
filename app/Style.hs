@@ -77,7 +77,7 @@ containerStyle = do
     fontFamily [primFont] []
     color lightGrey
     backgroundImage $ url "/img/wallpaper.png"
-    backgroundPosition $ positioned (pct 79.5) (pct 0)
+    backgroundPosition $ positioned (pct 67) (pct 60)
     backgroundSize cover
     backgroundColor crimson
     backgroundAttachment attachFixed
