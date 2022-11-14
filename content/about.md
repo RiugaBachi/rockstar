@@ -1,10 +1,8 @@
-Greetings.
+Greetings!
 
-Name's Riuga. 
+Just a long-time disenfranchised C++ developer -turned Haskell developer, Linux/FOSS proponent, metalhead, and guitarist. Pro- digital privacy, anti-anticheat. My current interests (besides music) are _arrowized FRP_, _static evaluation_, _dependent types_, _isomorphic parsing_, and _functional Vulkan/SPIR_. 
 
-Just a long-time disenfranchised C++ developer -turned Haskell developer, Linux/FOSS proponent, metalhead, and guitarist. Pro- digital privacy, anti-anticheat. My current interests are _arrowized FRP_, _static evaluation_, _dependent types_, _isomorphic parsing_, and _functional Vulkan/SPIR_. 
-
-This blog, which I have aptly named my "tavern"---I am, after all, an irredeemable Celtic folk metalhead to some degree---serves as an emporium for all my thoughts related to Haskell, the Korean MMO industry, functional game development, and perhaps in the future, a variety of one-off topics. I believe every experienced Haskeller should try to contribute back to the community in the form of learning resources if they judge themselves to be pedagogically sound; the language is constantly evolving and beginners are having a more difficult time ascending the ivory tower than ever.
+This blog, which I have aptly named my "livehouse"---concert culture is, after all, a large part of my identity---serves as an emporium for all my thoughts related to Haskell, guitars, bands, concerts, the Korean MMO industry, functional game development, and perhaps in the future, a variety of one-off topics.
 
 I occasionally livestream Haskell development over on Twitch, albeit with no real schedule for now. It should be noted that my streams do not cater to small monitors; you will likely have to view it in full screen to view the actual code, otherwise it will simply act as a workflow showcase.
 
@@ -14,7 +12,7 @@ For business inquiries: `riuga@tuta.io`
 
 I am currently open to considering remote Haskell opportunities agreed upon ahead of time. Feel free to reach out to me via the email address above.
 
-Homepage quote courtesy of Tuomas Holopainen, off the album _Endless Forms Most Beautiful_.
+Homepage quote courtesy of Band-Maid, off the song _azure_.
 
 <br/>
 <hr/>
@@ -30,18 +28,27 @@ A: The direction every other language has been tending towards for a _very_ long
 A: I believe a book only takes you so far when it comes to Haskell; that is to say, no matter what book one uses, unless they go out of their way to read obscure Haskell blogs and articles, they will be stuck at the 'beginner' level. If you are looking for a book, however, my sole recommendation is `To Kata Haskellen Evangelion` by Cosmia Fu. It is unfinished, many beginners have complained that it was a dry read at times, however I appreciate its emphasis on mathematical rigor and practical exercises. The book covers everything from basic functions all the way to category theory.
 
 ### Q: What's with the website theme? Where can I get it?
-A: I figured most Haskell blogs look like they were made in the early-mid 2000s, and many of the beginners I have tried evangelizing Haskell to seem to be put off by this. The concepts are already hard enough, so I may as well make it look as modern and motivating as possible to maximize audience attention.
+A: Believe it or not, this entire blog is written _entirely in Haskell_ using the [Rib static site generator](https://github.com/srid/rib). Plus some minimal Javascript and Markdown where appropriate. I've appropriately named this theme `rockstar`, and you can [find it over on my Github](https://github.com/riugabachi/festive). It is very clean, minimal, and maintainable compared to equivalent Jekyll solutions.
 
-Believe it or not, this entire blog is written _entirely in Haskell_ using the [Rib static site generator](https://github.com/srid/rib). Plus some minimal Jarascript and Markdown where appropriate. I've appropriately named this theme `festive`, and you can [find it over on my Github](https://github.com/riugabachi/festive). It is very clean, minimal, and maintainable compared to equivalent Jekyll solutions.
+### Q: Favorite band?
+A: Band-Maid (_shocking!_).
+
+### Q: Favorite gear / brands?
+A: Ibanez, Swiss Picks, NYXL/Paradigm .10-.52 (C# Standard 6), Kemper (Mesa-Boogie), MOTU. Casual enjoyer of anything with a maple fretboard. Biased towards deep blue finishes, but I can settle for purple/black.
 
 ### Q: Favorite cuisine?
 A: North Indian.
 
-### Q: Favorite band?
-A: I could give you an answer, but then I'd have to edit it every two weeks or so.
-
 ### Q: Favorite contemporary movie?
 A: [Under sandet (2015)](https://en.wikipedia.org/wiki/Land_of_Mine), very much a hidden gem.
+
+### Q: Casual life advice?
+A: In no particular order:
+
+1. Embrace the anchor of leadership. It weighs as it should.
+2. Life will always suck. We just trade certain kinds of suck for other types as we progress through our lives and careers. Just look at Notch; even being a billionaire has its own problems of isolation, depression, and goallessness. Maximizing happiness boils down to figuring out which types of suck you're willing to put up with.
+3. Bad things happen to those who keep their heads in the clouds all the time. Dream, but strive to stay grounded in reality in all interpersonal interactions.
+4. Give non-linear thinking a shot. Instead of classifying everything as us-vs-them, black-and-white; think, what concerns and fears do people with an opposing opinion have? Can we empathize with them and address those sources instead of beating the other side on the head until they give in and agree with our perspective?
 
 <br/>
 <br/>
