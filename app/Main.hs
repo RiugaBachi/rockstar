@@ -31,7 +31,7 @@ import Style (pageStyle)
 -- * Site Config
 
 avatar :: IsString a => a
-avatar = "img/avatar-xmas-w.png"
+avatar = "img/avatar-kanami-1.png"
 
 author :: IsString a => a
 author = "Riuga"
@@ -43,14 +43,26 @@ disqusShortname :: IsString a => a
 disqusShortname = "riugabachi"
 
 siteTitle :: IsString a => a
-siteTitle = "Riuga's Programming Tavern"
+siteTitle = "Riuga's Programming Livehouse"
 
 siteBio :: IsString a => [a]
-siteBio =
-  [ "The deepest solace lies in understanding"
-  , "This ancient unseen stream"
-  , "A shudder before the beautiful" 
-  ]
+siteBio = azure
+  where
+    azure :: IsString a => [a]
+    azure =
+      [ "Nothing ever goes exactly to plan"
+      , "So please forgive me"
+      , "Let us look up to the clear azure pastels"
+      , "Laugh together"
+      , "And go on to paint the future!"
+      ]
+
+    _dawkins :: IsString a => [a]
+    _dawkins =
+      [ "The deepest solace lies in understanding"
+      , "This ancient unseen stream"
+      , "A shudder before the beautiful" 
+      ]
 
 socials :: [(Text, Text)]
 socials =
@@ -62,7 +74,7 @@ socials =
   ]
 
 spotifyUrl :: Text
-spotifyUrl = "https://open.spotify.com/embed/playlist/5aXgrdQZWqTagrafhWf4kB"
+spotifyUrl = "https://open.spotify.com/embed/playlist/5aXgrdQZWqTagrafhWf4kB?utm_source=generator&theme=0"
 
 -- * Routes
 
