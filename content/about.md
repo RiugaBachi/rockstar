@@ -12,7 +12,7 @@ For business inquiries: `riuga@tuta.io`
 
 I am currently open to considering remote Haskell opportunities agreed upon ahead of time. Feel free to reach out to me via the email address above.
 
-Homepage quote courtesy of Band-Maid, off the song _azure_.
+Homepage quote courtesy of Band-Maid, off the song _The Dragon Cries_.
 
 <br/>
 <hr/>
@@ -33,8 +33,8 @@ A: Believe it or not, this entire blog is written _entirely in Haskell_ using th
 ### Q: Favorite band?
 A: Band-Maid (_shocking!_).
 
-### Q: Favorite gear / brands?
-A: Ibanez, Swiss Picks, NYXL/Paradigm .10-.52 (C# Standard 6), Kemper (Mesa-Boogie), MOTU. Casual enjoyer of anything with a maple fretboard. Biased towards deep blue finishes, but I can settle for purple/black.
+### Q: Favorite gear / software / brands?
+A: Ibanez, Swiss Picks, NYXL/Paradigm .10-.52 (C# Standard 6), Ownhammer IRs, Guitarix, MOTU. Casual enjoyer of anything with a maple fretboard and Mesa-Boogie amps. Biased towards deep blue finishes, but I can settle for purple/black.
 
 ### Q: Favorite cuisine?
 A: North Indian.
@@ -46,7 +46,7 @@ A: [Under sandet (2015)](https://en.wikipedia.org/wiki/Land_of_Mine), very much 
 A: In no particular order:
 
 1. Embrace the anchor of leadership. It weighs as it should.
-2. Life will always suck. We just trade certain kinds of suck for other types as we progress through our lives and careers. Just look at Notch; even being a billionaire has its own problems of isolation, depression, and goallessness. Maximizing happiness boils down to figuring out which types of suck you're willing to put up with.
+2. Life will always suck. We just trade certain kinds of suck for other types as we progress through our lives and careers. Just look at Notch; even being a billionaire has its own problems of isolation, depression, and goallessness. Maximizing happiness boils down to figuring out which types of suck you're willing to put up with. Embrace the suck.
 3. Bad things happen to those who keep their heads in the clouds all the time. Dream, but strive to stay grounded in reality in all interpersonal interactions.
 4. Give non-linear thinking a shot. Instead of classifying everything as us-vs-them, black-and-white; think, what concerns and fears do people with an opposing opinion have? Can we empathize with them and address those sources instead of beating the other side on the head until they give in and agree with our perspective?
 

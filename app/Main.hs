@@ -56,8 +56,8 @@ siteBio = tdc
       , "The dragon cries"
       ]
 
-    azure :: IsString a => [a]
-    azure =
+    _azure :: IsString a => [a]
+    _azure =
       [ "Nothing ever goes exactly to plan"
       , "So please forgive me"
       , "Let us look up to the clear azure pastels"
