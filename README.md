@@ -1,4 +1,4 @@
-# festive
+# rockstar
 
 A modern blog theme written in pure Haskell using the [rib](https://github.com/srid/rib) static site generator. Loosely based off of the Taylantatli/Moon Jekyll theme.
 
