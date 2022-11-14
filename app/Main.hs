@@ -46,8 +46,16 @@ siteTitle :: IsString a => a
 siteTitle = "Riuga's Programming Livehouse"
 
 siteBio :: IsString a => [a]
-siteBio = azure
+siteBio = tdc
   where
+    tdc :: IsString a => [a]
+    tdc =
+      [ "A thousand roses that never bloom"
+      , "No more tears to cry"
+      , "The phoenix flies"
+      , "The dragon cries"
+      ]
+
     azure :: IsString a => [a]
     azure =
       [ "Nothing ever goes exactly to plan"
