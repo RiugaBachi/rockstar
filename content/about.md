@@ -12,7 +12,7 @@ For business inquiries: `riuga@tuta.io`
 
 I am currently open to considering remote Haskell opportunities agreed upon ahead of time. Feel free to reach out to me via the email address above.
 
-Homepage quote courtesy of Band-Maid, off the song _The Dragon Cries_.
+Homepage quote courtesy of Tuomas Holopainen, off the song _Shudder Before the Beautiful_.
 
 <br/>
 <hr/>

@@ -46,31 +46,11 @@ siteTitle :: IsString a => a
 siteTitle = "Riuga's Programming Livehouse"
 
 siteBio :: IsString a => [a]
-siteBio = tdc
-  where
-    tdc :: IsString a => [a]
-    tdc =
-      [ "A thousand roses that never bloom"
-      , "No more tears to cry"
-      , "The phoenix flies"
-      , "The dragon cries"
-      ]
-
-    _azure :: IsString a => [a]
-    _azure =
-      [ "Nothing ever goes exactly to plan"
-      , "So please forgive me"
-      , "Let us look up to the clear azure pastels"
-      , "Laugh together"
-      , "And go on to paint the future!"
-      ]
-
-    _dawkins :: IsString a => [a]
-    _dawkins =
-      [ "The deepest solace lies in understanding"
-      , "This ancient unseen stream"
-      , "A shudder before the beautiful" 
-      ]
+siteBio = 
+  [ "The deepest solace lies in understanding"
+  , "This ancient unseen stream"
+  , "A shudder before the beautiful" 
+  ]
 
 socials :: [(Text, Text)]
 socials =
