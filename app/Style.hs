@@ -132,14 +132,15 @@ containerStyle = do
     flexDirection row
     width (pct 100)
   ".controls-left" ? do
-    display flex
+    --display flex
     justifyContent center
     alignItems center
     width (pct 50)
   ".controls-right" ? do
+    padding (px 10) 0 0 0
     width (px 255) 
-    height (px 195.5)
-    overflow hidden
+    --height (px 195.5)
+    --overflow hidden
   ".spotify-player" ? do
     backgroundColor black
     boxShadow . pure . bsColor (setA' 0xBB grey) $

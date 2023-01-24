@@ -236,7 +236,7 @@ renderPage route val = html_ [lang_ "en"] $ do
                   [ class_ "spotify-player"
                   , src_ spotifyUrl
                   , width_ "300"
-                  , height_ "230"
+                  , height_ "158"
                   ] mempty
       where
         subroutes = ["About", "Posts", "Projects"]
