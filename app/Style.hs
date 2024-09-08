@@ -227,6 +227,8 @@ containerStyle = do
     boxShadow . pure . bsColor (setA 0.7 grey) $ 
       shadowWithSpread 0 0 (px 10) 0
     transitionDuration (sec 0.5)
+  "#recommendation-error" ? do
+    display none
   where
     fullSize = do
       margin none none none none
