@@ -21,6 +21,7 @@ import qualified Data.Text.Lazy as LT
 import Data.Text (Text)
 import Development.Shake
 import Lucid
+import Lucid.Base
 import Main.Utf8
 import Rib (IsRoute)
 import qualified Rib
@@ -237,6 +238,8 @@ renderPage route val = html_ [lang_ "en"] $ do
                   , src_ spotifyUrl
                   , width_ "300"
                   , height_ "158"
+                  , makeAttribute "loading" "lazy"
+                  , makeAttribute "allow" "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   ] mempty
       where
         subroutes = ["About", "Posts", "Projects"]
@@ -340,6 +343,5 @@ renderPage route val = html_ [lang_ "en"] $ do
         scriptSources =
           [ "//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
           , "/js/scripts.js"
-          , "//polyfill.io/v3/polyfill.min.js?features=es6"
           , "//" <> disqusShortname <> ".disqus.com/embed.js"
           ]
